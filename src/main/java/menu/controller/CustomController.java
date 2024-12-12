@@ -25,7 +25,7 @@ public class CustomController extends ExceptionLoopController{
     }
 
     private List<Coach> getCoaches() {
-
-
+        output.printGetCoachesMessage();
+        return input.getCoaches();
     }
 }
