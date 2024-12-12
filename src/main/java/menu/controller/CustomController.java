@@ -1,6 +1,7 @@
 package menu.controller;
 
 import menu.domain.Coach;
+import menu.domain.MenuRoster;
 import menu.service.CustomService;
 import menu.view.InputView;
 import menu.view.OutputView;
@@ -21,11 +22,22 @@ public class CustomController extends ExceptionLoopController{
     public void run() {
         output.printStartMessage();
         List<Coach> coaches = repeatUntilValid(this::getCoaches);
-
+        for(Coach coach : coaches) {
+            output.printGetHateMenus(coach.getName());
+            List<String> hateMenus = repeatUntilValid(this::getHateMenus);
+            if (!hateMenus.isEmpty()) {
+                coach.setHateMenus(hateMenus);
+            }
+        }
+        List<MenuRoster> menuRosters = service.makeMenuRoster(coaches);
     }
 
     private List<Coach> getCoaches() {
         output.printGetCoachesMessage();
         return input.getCoaches();
+    }
+
+    private List<String> getHateMenus(){
+        return input.getHateMenus();
     }
 }

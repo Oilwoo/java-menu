@@ -2,14 +2,15 @@ package menu.domain;
 
 import menu.exception.CoachNameLengthException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Coach {
     private final String name;
-    private final List<String> hateFoods = null;
-
+    private List<String> hateMenus = new ArrayList<>();
 
     public Coach(String name) {
+        validate(name);
         this.name = name;
     }
 
@@ -18,4 +19,14 @@ public class Coach {
             throw new CoachNameLengthException();
         }
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<String> setHateMenus(List<String> menus) {
+        hateMenus = menus;
+    }
+
+
 }
