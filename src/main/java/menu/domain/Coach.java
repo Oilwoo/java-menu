@@ -24,9 +24,7 @@ public class Coach {
         return name;
     }
 
-    public List<String> setHateMenus(List<String> menus) {
+    public void setHateMenus(List<String> menus) {
         hateMenus = menus;
     }
-
-
 }
