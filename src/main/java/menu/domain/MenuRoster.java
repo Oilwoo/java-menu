@@ -1,15 +1,22 @@
 package menu.domain;
 
 import java.time.DayOfWeek;
+import java.util.List;
 
 public class MenuRoster {
-    private final DayOfWeek dayOfWeek;
     private final String name;
     private final String menu;
 
-    public MenuRoster(DayOfWeek dayOfWeek, String name, String menu) {
-        this.dayOfWeek = dayOfWeek;
+    public MenuRoster(String name, String menu) {
         this.name = name;
         this.menu = menu;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getMenu() {
+        return menu;
     }
 }

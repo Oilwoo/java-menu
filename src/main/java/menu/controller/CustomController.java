@@ -2,6 +2,7 @@ package menu.controller;
 
 import menu.domain.Coach;
 import menu.domain.MenuRoster;
+import menu.domain.WeeklyRoster;
 import menu.service.CustomService;
 import menu.view.InputView;
 import menu.view.OutputView;
@@ -29,7 +30,8 @@ public class CustomController extends ExceptionLoopController{
                 coach.setHateMenus(hateMenus);
             }
         }
-        List<MenuRoster> menuRosters = service.makeMenuRoster(coaches);
+        List<WeeklyRoster> weeklyRosters = service.makeWeeklyRoster(coaches);
+        output.printWeeklyRoster(coaches, weeklyRosters);
     }
 
     private List<Coach> getCoaches() {

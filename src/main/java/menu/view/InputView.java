@@ -50,7 +50,7 @@ public class InputView {
     }
 
     private void validateMenuSize(String[] splitInput) {
-        if (splitInput.length <= Config.HateMenuMaxSizeException) {
+        if (splitInput.length > Config.HateMenuMaxSizeException) {
             throw new HateMenuMaxSizeException();
         }
     }
